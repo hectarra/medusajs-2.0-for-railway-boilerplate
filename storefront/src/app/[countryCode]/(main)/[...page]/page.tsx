@@ -3,7 +3,7 @@ import { builder } from "@builder.io/sdk";
 import { RenderBuilderContent } from "@modules/common/components/builder";
 
 // Initialize Builder.io
-builder.init("70960fd039784ac08e7a9e0355f38349");
+builder.init("e2681541300e4e2d84c04a77559a707c");
 
 export const metadata: Metadata = {
   title: "Builder.io + Medusa Next.js Starter Template",
