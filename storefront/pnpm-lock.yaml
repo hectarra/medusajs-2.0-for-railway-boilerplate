@@ -108,6 +108,9 @@ importers:
       '@playwright/test':
         specifier: ^1.41.1
         version: 1.49.1
+      '@types/cors':
+        specifier: ^2.8.17
+        version: 2.8.17
       '@types/lodash':
         specifier: ^4.14.195
         version: 4.17.13
@@ -1545,6 +1548,9 @@ packages:
 
   '@tanstack/virtual-core@3.11.2':
     resolution: {integrity: sha512-vTtpNt7mKCiZ1pwU9hfKPhpdVO2sVzFQsxoVBGtOSHxlrRRzYr8iQ2TlwbAcRYCcEiZ9ECAM8kBzH0v2+VzfKw==}
+
+  '@types/cors@2.8.17':
+    resolution: {integrity: sha512-8CGDvrBj1zgo2qE+oS3pOCyYNqCPryMWY2bGfwA0dcfopWGgxs+78df0Rs3rc9THP4JkOhLsAa+15VdpAqkcUA==}
 
   '@types/dom-speech-recognition@0.0.1':
     resolution: {integrity: sha512-udCxb8DvjcDKfk1WTBzDsxFbLgYxmQGKrE/ricoMqHRNjSlSUCcamVTA5lIQqzY10mY5qCY0QDwBfFEwhfoDPw==}
@@ -5804,6 +5810,10 @@ snapshots:
       react-dom: 18.3.1(react@18.3.1)
 
   '@tanstack/virtual-core@3.11.2': {}
+
+  '@types/cors@2.8.17':
+    dependencies:
+      '@types/node': 17.0.21
 
   '@types/dom-speech-recognition@0.0.1': {}
 
