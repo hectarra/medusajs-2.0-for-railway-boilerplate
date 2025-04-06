@@ -10,6 +10,8 @@ export const metadata: Metadata = {
   description: "A performant e-commerce starter template with Next.js 14 and Medusa.",
 };
 
+export const revalidate = 60
+
 interface BuilderPageProps {
   params: {
     page?: string[];
