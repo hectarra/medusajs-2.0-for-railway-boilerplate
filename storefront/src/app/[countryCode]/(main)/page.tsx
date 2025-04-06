@@ -32,7 +32,7 @@ export default async function Home({
       userAttributes: { urlPath: "/" },
       options: { countryCode },
       locale: countryCode,
-      prerender: false,
+      prerender: true,
     })
     .toPromise();
 
