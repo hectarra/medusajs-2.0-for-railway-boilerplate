@@ -27,6 +27,8 @@ export default async function BuilderPage({ params }: BuilderPageProps) {
       options: { countryCode },
       locale: countryCode,
       prerender: false,
+      cacheSeconds: 10,
+      cachebust: true
     })
     .toPromise();
 

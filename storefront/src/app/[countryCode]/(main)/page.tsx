@@ -33,6 +33,8 @@ export default async function Home({
       options: { countryCode },
       locale: countryCode,
       prerender: false,
+      cacheSeconds: 10,
+      cachebust: true
     })
     .toPromise();
 
