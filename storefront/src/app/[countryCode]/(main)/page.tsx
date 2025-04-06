@@ -7,7 +7,7 @@ import Hero from "@modules/home/components/hero"
 import { getCollectionsWithProducts } from "@lib/data/collections"
 import { getRegion } from "@lib/data/regions"
 
-builder.init("Your-Builder-Public-API-Key");
+builder.init("e2681541300e4e2d84c04a77559a707c");
 
 export const metadata: Metadata = {
   title: "Medusa Next.js Starter Template",
