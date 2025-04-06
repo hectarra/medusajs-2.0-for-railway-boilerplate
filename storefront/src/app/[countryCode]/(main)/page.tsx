@@ -27,18 +27,17 @@ export default async function Home({
     return null
   }
 
-  const content = await builder
+  /* const content = await builder
   .get("page", {
     userAttributes: { urlPath: "/" },
     options: { countryCode },
     locale: countryCode,
     prerender: false,
   })
-  .toPromise();
+  .toPromise(); */
 
   return (
     <>
-      <RenderBuilderContent content={content} model="page" locale={countryCode} />
       <div className="py-12">
         <ul className="flex flex-col gap-x-6">
           <FeaturedProducts collections={collections} region={region} />
