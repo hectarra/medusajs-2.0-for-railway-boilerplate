@@ -1,9 +1,13 @@
 import { Metadata } from "next"
+import { builder } from "@builder.io/sdk";
+import { RenderBuilderContent } from "@modules/common/components/builder";
+
 
 import FeaturedProducts from "@modules/home/components/featured-products"
-import Hero from "@modules/home/components/hero"
 import { getCollectionsWithProducts } from "@lib/data/collections"
 import { getRegion } from "@lib/data/regions"
+
+builder.init("70960fd039784ac08e7a9e0355f38349");
 
 export const metadata: Metadata = {
   title: "Medusa Next.js Starter Template",
@@ -23,9 +27,18 @@ export default async function Home({
     return null
   }
 
+  const content = await builder
+  .get("page", {
+    userAttributes: { urlPath: "/" },
+    options: { countryCode },
+    locale: countryCode,
+    prerender: false,
+  })
+  .toPromise();
+
   return (
     <>
-      <Hero />
+      <RenderBuilderContent content={content} model="page" locale={countryCode} />
       <div className="py-12">
         <ul className="flex flex-col gap-x-6">
           <FeaturedProducts collections={collections} region={region} />
@@ -34,3 +47,4 @@ export default async function Home({
     </>
   )
 }
+
