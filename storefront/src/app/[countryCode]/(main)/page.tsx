@@ -15,6 +15,8 @@ export const metadata: Metadata = {
     "A performant frontend ecommerce starter template with Next.js 14 and Medusa.",
 }
 
+export const revalidate = 60
+
 export default async function Home({
   params: { countryCode },
 }: {
