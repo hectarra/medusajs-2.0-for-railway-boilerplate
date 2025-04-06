@@ -88,6 +88,16 @@ async function getCountryCode(
  * Middleware to handle region selection and onboarding status.
  */
 export async function middleware(request: NextRequest) {
+  // Check if the URL has the 'builder.preview' or '__builder_editing__' query parameters
+  const isPreviewing =
+    request.nextUrl.searchParams.has("builder.preview") ||
+    request.nextUrl.searchParams.has("__builder_editing__");
+
+  // If the user is in preview mode, bypass the redirect logic
+  if (isPreviewing) {
+    return NextResponse.next();
+  }
+
   const searchParams = request.nextUrl.searchParams
   const isOnboarding = searchParams.get("onboarding") === "true"
   const cartId = searchParams.get("cart_id")
@@ -119,6 +129,15 @@ export async function middleware(request: NextRequest) {
   let redirectUrl = request.nextUrl.href
 
   let response = NextResponse.redirect(redirectUrl, 307)
+
+  // Set CORS headers and allow the iframe from Builder.io
+  response.headers.set("Access-Control-Allow-Origin", "https://builder.io");
+  response.headers.set("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
+  response.headers.set("Access-Control-Allow-Headers", "Content-Type, Authorization");
+
+  // Allow storefront to load in Builder.io iframe
+  response.headers.set("X-Frame-Options", "ALLOW-FROM https://builder.io");
+  response.headers.set("Content-Security-Policy", "frame-ancestors 'self' https://builder.io");
 
   // If no country code is set, we redirect to the relevant region.
   if (!urlHasCountryCode && countryCode) {
