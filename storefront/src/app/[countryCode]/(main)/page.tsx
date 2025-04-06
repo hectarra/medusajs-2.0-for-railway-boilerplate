@@ -36,8 +36,6 @@ export default async function Home({
     })
     .toPromise();
 
-  console.log("content", content);
-
   return (
     <>
       <Hero />
