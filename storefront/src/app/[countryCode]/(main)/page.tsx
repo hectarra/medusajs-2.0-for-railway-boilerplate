@@ -32,7 +32,7 @@ export default async function Home({
       userAttributes: { urlPath: "/" },
       options: { countryCode },
       locale: countryCode,
-      prerender: true,
+      prerender: false,
     })
     .toPromise();
 
@@ -44,6 +44,7 @@ export default async function Home({
           <FeaturedProducts collections={collections} region={region} />
         </ul>
       </div>
+      console.log("content", content);
       <RenderBuilderContent content={content} model="page" locale={countryCode} />
     </>
   )
